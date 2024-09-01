@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <h1>Home Page</h1>
+        <h1 class="bg-blue-400">Home Page</h1>
     </div>
 </template>
 
