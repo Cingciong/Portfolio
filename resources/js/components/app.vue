@@ -3,10 +3,8 @@
 </script>
 
 <template>
-    <div>
-        <h1>App Component</h1>
-    </div>
-    <main>
+
+    <main class="min-h-screen w-full ">
         <router-view></router-view>
     </main>
 </template>
