@@ -8,23 +8,22 @@ const cards = ref([]);
 const keyCounter = ref(0);
 
 const getNextKey = () => {
-    return keyCounter.value++;
+    return 'card_' + keyCounter.value++;
 };
 
 
 onMounted(async () => {
     layout.getContainerSize();
-    layout.getCardSizes();
-    console.log(layout.containerSize, layout.cardSizes);
+    layout.getCards();
     layout.arrangeCards();
-    console.log(layout.cardPositions);
-    layout.applyCardPositions();
+
 
     const cardElements = document.querySelectorAll('.card');
-    cardElements.forEach((cardElement, index) => {
+    cardElements.forEach((cardElement) => {
+        const id = cardElement.getAttribute('id');
         cardElement.style.transitionDuration = '300ms';
-        cardElement.addEventListener('mousedown', (e) => dragMove(e, index, cards.value, layout));
-        cards.value.push({ id: index, element: cardElement });
+        cardElement.addEventListener('mousedown', (e) => dragMove(e, id, cards.value, layout));
+        cards.value.push({ id, element: cardElement });
     });
 });
 </script>
@@ -35,10 +34,8 @@ onMounted(async () => {
             navigation
         </nav>
         <section class="container mx-auto w-[1200px] bg-black bg-opacity-15 min-h-screen relative">
-            <div :key="getNextKey()" size="4x3" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute"></div>
-            <div :key="getNextKey()" size="7x1" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute"></div>
-            <div :key="getNextKey()" size="3x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute "></div>
-<!--            <div v-for="index in 1" :key="getNextKey()" size="1x1" class="card bg-[#AFDA9F] rounded cursor-pointer absolute"></div>-->
+            <div id="ghostCard" class="rounded-2xl border border-gray-300 bg-green-500 border-opacity-15 cursor-pointer absolute duration-500 transition-all"></div>
+            <div v-for="index in 9" :id="getNextKey()" size="3x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute "></div>
         </section>
     </div>
 </template>
