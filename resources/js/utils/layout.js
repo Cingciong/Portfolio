@@ -38,7 +38,7 @@ class Layout {
         if (ghostCard) {
             this.placeCard(grid, ghostCard.left, ghostCard.top, ghostCard.width, ghostCard.height);
         }
-        console.log('ghostCard', this.cardPositions);
+
 
         this.cards.forEach(card => {
             if (card.id === 'ghostCard') return; // Skip ghostCard as it's already placed
@@ -119,7 +119,6 @@ class Layout {
         });
     }
     snapToGrid(id, left, top) {
-        console.log('snapToGrid', id, left, top);
         const columnWidth = this.containerSize / this.gridColumns;
         const gridLeft = Math.max(0, Math.min(Math.round(left / columnWidth), this.gridColumns - 1));
         const gridTop = Math.max(0, Math.min(Math.round(top / columnWidth), this.gridColumns - 1));
