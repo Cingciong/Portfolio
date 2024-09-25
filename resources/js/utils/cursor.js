@@ -6,7 +6,7 @@ export const dragMove = (e, id, cards, layout) => {
     const sectionRect = section.getBoundingClientRect();
     const offsetX = e.clientX - card.element.getBoundingClientRect().left;
     const offsetY = e.clientY - card.element.getBoundingClientRect().top;
-    card.element.style.transitionDuration = '300ms';
+    card.element.style.transitionDuration = '500ms';
     document.getElementById('ghostCard').style.opacity = '100';
     document.getElementById('ghostCard').style.transitionDuration = '0ms';
     console.log(layout.cardPositions, layout.card);
@@ -37,30 +37,33 @@ export const dragMove = (e, id, cards, layout) => {
     const onMouseMove = (e) => {
         if (!card) return;
 
-        let newLeft = e.clientX - offsetX;
-        let newTop = e.clientY - offsetY;
+        const container = document.querySelector('.container');
+        const containerRect = container.getBoundingClientRect();
+
+        let newLeft = e.clientX - offsetX - containerRect.left;
+        let newTop = e.clientY - offsetY - containerRect.top;
 
         // Ensure the card does not move outside the container boundaries
-        const containerRight = sectionRect.left + sectionRect.width;
-        const containerBottom = sectionRect.top + sectionRect.height;
+        const containerRight = containerRect.width;
+        const containerBottom = containerRect.height;
 
-        if (newLeft < sectionRect.left) {
-            newLeft = sectionRect.left;
+        if (newLeft < 0) {
+            newLeft = 0;
         } else if (newLeft + card.element.offsetWidth > containerRight) {
             newLeft = containerRight - card.element.offsetWidth;
         }
 
-        if (newTop < sectionRect.top) {
-            newTop = sectionRect.top;
+        if (newTop < 0) {
+            newTop = 0;
         } else if (newTop + card.element.offsetHeight > containerBottom) {
             newTop = containerBottom - card.element.offsetHeight;
         }
+
         card.element.style.transitionDuration = '0ms';
-        card.element.style.left = `${newLeft - sectionRect.left}px`;
-        card.element.style.top = `${newTop - sectionRect.top}px`;
+        card.element.style.left = `${newLeft}px`;
+        card.element.style.top = `${newTop}px`;
 
-
-        layout.snapToGrid('ghostCard', newLeft- sectionRect.left, newTop-sectionRect.top);
+        layout.snapToGrid('ghostCard', newLeft, newTop);
         document.getElementById('ghostCard').style.transitionDuration = '300ms';
     };
 
@@ -86,7 +89,7 @@ export const dragMove = (e, id, cards, layout) => {
         card.element.style.left = ghostCardElement.style.left;
         card.element.style.top = ghostCardElement.style.top;
 
-        card.element.style.transitionDuration = '300ms';
+        card.element.style.transitionDuration = '500ms';
 
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
@@ -95,3 +98,13 @@ export const dragMove = (e, id, cards, layout) => {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 };
+
+export function initializeCardElements(cards, layout) {
+    const cardElements = document.querySelectorAll('.card');
+    cardElements.forEach((cardElement) => {
+        const id = cardElement.getAttribute('id');
+        cardElement.style.transitionDuration = '300ms';
+        cardElement.addEventListener('mousedown', (e) => dragMove(e, id, cards.value, layout));
+        cards.value.push({ id, element: cardElement });
+    });
+}

@@ -1,13 +1,16 @@
+// layout.js
+
 class Layout {
     constructor() {
+        this.keyCounter = 0;
         this.containerSize = 0;
         this.gap = 3.5;
         this.gridColumns = 12;
         this.cards = [];
         this.cardPositions = [];
         this.calculatedPositions = [];
-
     }
+
     getContainerSize() {
         const container = document.querySelector('.container');
         if (container) {
@@ -16,6 +19,7 @@ class Layout {
             this.containerSize = 0;
         }
     }
+
     getCards() {
         const cards = document.querySelectorAll('.card');
         this.cards = Array.from(cards).map(card => {
@@ -27,18 +31,16 @@ class Layout {
             };
         });
     }
+
     arrangeCards() {
-
-
-        const grid = Array.from({ length: this.gridColumns }, () => []);
+        // Initialize the grid with the correct number of columns for each row
+        const grid = Array.from({ length: this.gridColumns }, () => Array(this.gridColumns).fill(false));
         let currentTop = 0;
-
 
         const ghostCard = this.cardPositions.find(card => card.id === 'ghostCard');
         if (ghostCard) {
             this.placeCard(grid, ghostCard.left, ghostCard.top, ghostCard.width, ghostCard.height);
         }
-
 
         this.cards.forEach(card => {
             if (card.id === 'ghostCard') return; // Skip ghostCard as it's already placed
@@ -68,7 +70,9 @@ class Layout {
         });
 
         this.calculatePosition();
+        this.adjustContainerSize();
     }
+
     canPlaceCard(grid, col, row, width, height) {
         for (let i = 0; i < width; i++) {
             for (let j = 0; j < height; j++) {
@@ -79,13 +83,16 @@ class Layout {
         }
         return true;
     }
+
     placeCard(grid, col, row, width, height) {
+
         for (let i = 0; i < width; i++) {
             for (let j = 0; j < height; j++) {
                 grid[col + i][row + j] = true;
             }
         }
     }
+
     calculatePosition() {
         const columnWidth = this.containerSize / this.gridColumns;
         this.calculatedPositions = [];
@@ -106,11 +113,11 @@ class Layout {
 
         this.applyChanges();
     }
+
     applyChanges() {
         this.calculatedPositions.forEach(position => {
             const element = document.getElementById(position.id);
             if (element) {
-
                 element.style.left = `${position.left}px`;
                 element.style.top = `${position.top}px`;
                 element.style.width = `${position.width}px`;
@@ -118,12 +125,12 @@ class Layout {
             }
         });
     }
+
     snapToGrid(id, left, top) {
         const columnWidth = this.containerSize / this.gridColumns;
         const gridLeft = Math.max(0, Math.min(Math.round(left / columnWidth), this.gridColumns - 1));
         const gridTop = Math.max(0, Math.min(Math.round(top / columnWidth), this.gridColumns - 1));
         const element = document.getElementById(id);
-
 
         if (element) {
             const elementWidth = Math.round(element.offsetWidth / columnWidth);
@@ -144,8 +151,32 @@ class Layout {
         }
     }
 
+    adjustContainerSize() {
+        const container = document.querySelector('.container');
+        if (!container) return;
+
+        // Calculate the maximum bottom position of all cards
+        let maxBottom = 0;
+        this.cardPositions.forEach(card => {
+            const cardBottom = card.top + card.height;
+            if (cardBottom > maxBottom) {
+                maxBottom = cardBottom;
+            }
+        });
+
+        // Calculate the required height in pixels
+        const columnWidth = this.containerSize / this.gridColumns;
+        const requiredHeight = maxBottom * columnWidth;
+
+        // Adjust the container height only if the required height is greater than the current height
+        if (requiredHeight > container.offsetHeight) {
+            container.style.height = `${requiredHeight}px`;
+        }
+    }
+
+    getNextKey() {
+        return 'card_' + this.keyCounter++;
+    }
 }
-
-
 
 export const createLayout = () => new Layout();

@@ -6,7 +6,20 @@ module.exports = {
         './resources/**/*.vue',
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'main': ["Source Code Pro", "monospace"],
+            },
+            colors: {
+
+                primary: '#171616',   // Sand
+                secondary: '#343131', // Sunshine
+                accent: '#A04747',    // Mint
+                neutral: '#D8A25E',   // Seafoam
+                base: '#EEDF7A',      // Mist
+                text: '#ECDFCC'
+            },
+        },
     },
     plugins: [],
 }
