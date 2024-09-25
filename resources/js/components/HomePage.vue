@@ -34,8 +34,10 @@ onMounted(async () => {
             navigation
         </nav>
         <section class="container mx-auto w-[1200px] bg-black bg-opacity-15 min-h-screen relative">
-            <div id="ghostCard" class="rounded-2xl border border-gray-300 bg-green-500 border-opacity-15 cursor-pointer absolute duration-500 transition-all"></div>
-            <div v-for="index in 9" :id="getNextKey()" size="3x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute "></div>
+            <div id="ghostCard" class="rounded-2xl border border-gray-300 bg-green-500 border-opacity-15 cursor-pointer absolute duration-500 transition-all opacity-0"></div>
+            <div v-for="index in 3" :id="getNextKey()" size="7x3" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold">{{index}}</div>
+            <div v-for="index in 3" :id="getNextKey()" size="3x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold">{{index}}</div>
+            <div v-for="index in 3" :id="getNextKey()" size="1x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold">{{index}}</div>
         </section>
     </div>
 </template>

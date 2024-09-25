@@ -28,31 +28,63 @@ class Layout {
         });
     }
     arrangeCards() {
-        let currentLeft = 0;
+
+
+        const grid = Array.from({ length: this.gridColumns }, () => []);
         let currentTop = 0;
 
+
+        const ghostCard = this.cardPositions.find(card => card.id === 'ghostCard');
+        if (ghostCard) {
+            this.placeCard(grid, ghostCard.left, ghostCard.top, ghostCard.width, ghostCard.height);
+        }
+        console.log('ghostCard', this.cardPositions);
+
         this.cards.forEach(card => {
+            if (card.id === 'ghostCard') return; // Skip ghostCard as it's already placed
             const elementGridWidth = card.gridWidth;
             const elementGridHeight = card.gridHeight;
 
-            if (currentLeft + elementGridWidth > this.gridColumns) {
-                currentLeft = 0;
-                currentTop += elementGridHeight;
+            let placed = false;
+
+            for (let row = 0; !placed; row++) {
+                for (let col = 0; col <= this.gridColumns - elementGridWidth; col++) {
+                    if (this.canPlaceCard(grid, col, row, elementGridWidth, elementGridHeight)) {
+                        this.placeCard(grid, col, row, elementGridWidth, elementGridHeight);
+                        if (!this.cardPositions.some(existingCard => existingCard.id === card.id)) {
+                            this.cardPositions.push({
+                                id: card.id,
+                                left: col,
+                                top: row,
+                                width: elementGridWidth,
+                                height: elementGridHeight,
+                            });
+                        }
+                        placed = true;
+                        break;
+                    }
+                }
             }
-
-            this.cardPositions.push({
-                id: card.id,
-                left: currentLeft,
-                top: currentTop,
-                width: elementGridWidth,
-                height: elementGridHeight,
-            });
-
-            currentLeft += elementGridWidth;
         });
 
         this.calculatePosition();
-
+    }
+    canPlaceCard(grid, col, row, width, height) {
+        for (let i = 0; i < width; i++) {
+            for (let j = 0; j < height; j++) {
+                if (grid[col + i][row + j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    placeCard(grid, col, row, width, height) {
+        for (let i = 0; i < width; i++) {
+            for (let j = 0; j < height; j++) {
+                grid[col + i][row + j] = true;
+            }
+        }
     }
     calculatePosition() {
         const columnWidth = this.containerSize / this.gridColumns;
@@ -71,12 +103,11 @@ class Layout {
 
             this.calculatedPositions.push(calculatedPosition);
         });
+
         this.applyChanges();
     }
     applyChanges() {
-        console.log('aaa: ' + this.calculatedPositions);
         this.calculatedPositions.forEach(position => {
-            console.log(position.id);
             const element = document.getElementById(position.id);
             if (element) {
 
@@ -88,20 +119,29 @@ class Layout {
         });
     }
     snapToGrid(id, left, top) {
+        console.log('snapToGrid', id, left, top);
         const columnWidth = this.containerSize / this.gridColumns;
-        const gridLeft = Math.round(left / columnWidth) * columnWidth;
-        const gridTop = Math.round(top / columnWidth) * columnWidth;
+        const gridLeft = Math.max(0, Math.min(Math.round(left / columnWidth), this.gridColumns - 1));
+        const gridTop = Math.max(0, Math.min(Math.round(top / columnWidth), this.gridColumns - 1));
         const element = document.getElementById(id);
 
+
         if (element) {
-            const elementWidth = element.offsetWidth;
-            const maxLeft = this.containerSize - elementWidth;
+            const elementWidth = Math.round(element.offsetWidth / columnWidth);
+            const elementHeight = Math.round(element.offsetHeight / columnWidth);
 
-            const boundedLeft = Math.min(Math.max(gridLeft, 0), maxLeft);
-            const boundedTop = Math.max(gridTop, 0); // Assuming no vertical overflow
+            this.cardPositions = [];
 
-            element.style.left = `${boundedLeft}px`;
-            element.style.top = `${boundedTop}px`;
+            const snappedPosition = {
+                id: id,
+                left: gridLeft,
+                top: gridTop,
+                width: elementWidth,
+                height: elementHeight
+            };
+
+            this.cardPositions.push(snappedPosition);
+            this.arrangeCards();
         }
     }
 
