@@ -13,35 +13,20 @@ onMounted(async () => {
     initializeCardElements(cards, layout);
 });
 
-// Animations
-const ballClassIndex = ref(0);
-const ballClasses = ['right-[87%]', 'right-[63%]', 'right-[37%]', 'right-5'];
 
-const switchBallClass = () => {
-    ballClassIndex.value = (ballClassIndex.value + 1) % ballClasses.length;
-};
+
 </script>
 
 <template>
-    <div class="bg-primary  font-main h-fit flex flex-col gap-20 w-full text-text">
-        <div class="h-fit flex flex-col gap-20 w-[1500px] mx-auto">
-            <div class="justify-between flex pt-10">
-                <h1>Igor M.</h1>
-                <nav class="flex flex-row gap-2 relative">
-                    <button @click="switchBallClass()">Home</button>
-                    <a href="">Work</a>
-                    <a href="">About</a>
-                    <a href="">Photos</a>
-                    <div :class="['bg-red-400', 'rounded-full', 'w-2', 'h-2', 'absolute', '-bottom-4', 'transition-all', 'duration-300 shadow-2xl', ballClasses[ballClassIndex]]"></div>
-                </nav>
-            </div>
-            <section class=" flex justify-evenly">
+
+
+            <section class=" grid grid-cols-4">
                 <div class="flex flex-col gap-2  justify-center">
-                    <h2 class="text-6xl">Igor Maciejak</h2>
-                    <p class="text-lg text-left">
+                    <h2 class="text-6xl animate-fade-left">Igor Maciejak</h2>
+                    <p class="text-lg text-left animate-fade-right">
                         Based in Gdynia, Poland
                         <br>
-                        <div class="flex  items-center">
+                        <div class="flex  items-center animate-fade-left">
                             <span class="relative flex h-2 w-2">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
@@ -50,32 +35,33 @@ const switchBallClass = () => {
                         </div>
                     </p>
                 </div>
-                <img class="h-[35vw] w-[35vw] rounded-full" src="https://picsum.photos/2000/2000">
-                <div class="flex flex-col gap-2 justify-center w-fit px-auto">
-                    <h2 class="text-6xl">Igor Maciejak</h2>
-                    <p class="text-lg text-left">
-                        Based in Gdynia, Poland
-                        <br>
-                        <div class="flex items-center">
-            <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
-            </span>
-                            <h5 class="ml-1.5">open for job offers</h5>
-                        </div>
-                    </p>
+                <img class="h-[700px] w-[700px] col-span-2  rounded-full mx-auto
+                shadow-xl shadow-accent
+                border border-accent border-opacity-50 p-4 bg-secondary
+animate-fade animate-once animate-ease-in" src="https://picsum.photos/1000/1000">
+                <div class="flex flex-col gap-2 justify-center w-fit pl-auto">
+
+                    <h1 class="text-5xl w-fit  flex flex-col">
+                        <span class="text-accent animate-fade-down">
+                            Web Developer
+                        </span>
+                        <span class="text-[#D8A25E] animate-fade-up">
+                            & Freelance Photographer
+                        </span>
+                    </h1>
+
                 </div>
 
             </section>
-            <div class="flex justify-between"></div>
-            <div class="bg-secondary p-5 w-[1250px] bg-opacity-50 mx-auto rounded-3xl">
+
+            <div class="bg-secondary p-5 w-[1250px] bg-opacity-50 mx-auto rounded-3xl mt-20">
                 <section class="container mx-auto w-[1200px] min-h-screen relative">
                     <div id="ghostCard" class="rounded-2xl bg-accent cursor-pointer absolute duration-500 transition-all opacity-0"></div>
-                    <div v-for="index in 3" :id="layout.getNextKey()" size="7x3" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">{{index}}</div>
-                    <div v-for="index in 3" :id="layout.getNextKey()" size="3x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">{{index}}</div>
-                    <div v-for="index in 3" :id="layout.getNextKey()" size="1x2" class="card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">{{index}}</div>
+                    <div v-for="index in 10" :id="layout.getNextKey()" size="5x3" class=" select-none animate-fade-up animate-once animate-ease-out  card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">{{index}}</div>
+                    <div v-for="index in 9" :id="layout.getNextKey()" size="3x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">{{index}}</div>
+                    <div v-for="index in 9" :id="layout.getNextKey()" size="1x2" class=" select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">{{index}}</div>
                 </section>
             </div>
-        </div>
-    </div>
+
 </template>
+

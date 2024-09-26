@@ -45,7 +45,7 @@ export const dragMove = (e, id, cards, layout) => {
 
         // Ensure the card does not move outside the container boundaries
         const containerRight = containerRect.width;
-        const containerBottom = containerRect.height;
+        const containerBottom = containerRect.height; // Moved inside the event handler
 
         if (newLeft < 0) {
             newLeft = 0;
@@ -66,7 +66,6 @@ export const dragMove = (e, id, cards, layout) => {
         layout.snapToGrid('ghostCard', newLeft, newTop);
         document.getElementById('ghostCard').style.transitionDuration = '300ms';
     };
-
     const onMouseUp = (e) => {
         let newLeft = e.clientX - sectionRect.left - offsetX;
         let newTop = e.clientY - sectionRect.top - offsetY;

@@ -126,10 +126,19 @@ class Layout {
         });
     }
 
+    // layout.js
+
+// layout.js
+
     snapToGrid(id, left, top) {
         const columnWidth = this.containerSize / this.gridColumns;
+        console.log('Column Width:', columnWidth);
+        console.log('Top:', top);
+
         const gridLeft = Math.max(0, Math.min(Math.round(left / columnWidth), this.gridColumns - 1));
-        const gridTop = Math.max(0, Math.min(Math.round(top / columnWidth), this.gridColumns - 1));
+        const gridTop = Math.round(top / columnWidth);
+        console.log('Grid Top:', gridTop);
+
         const element = document.getElementById(id);
 
         if (element) {
@@ -148,6 +157,7 @@ class Layout {
 
             this.cardPositions.push(snappedPosition);
             this.arrangeCards();
+            this.adjustContainerSize(); // Ensure container size is updated
         }
     }
 
@@ -168,10 +178,8 @@ class Layout {
         const columnWidth = this.containerSize / this.gridColumns;
         const requiredHeight = maxBottom * columnWidth;
 
-        // Adjust the container height only if the required height is greater than the current height
-        if (requiredHeight > container.offsetHeight) {
-            container.style.height = `${requiredHeight}px`;
-        }
+        // Adjust the container height
+        container.style.height = `${requiredHeight}px`;
     }
 
     getNextKey() {
