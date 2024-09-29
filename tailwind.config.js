@@ -1,3 +1,4 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -11,7 +12,6 @@ module.exports = {
                 'main': ["Source Code Pro", "monospace"],
             },
             colors: {
-
                 primary: '#171616',   // Sand
                 secondary: '#343131', // Sunshine
                 accent: '#A04747',    // Mint
@@ -22,6 +22,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('tailwindcss-animated')
+        require('tailwindcss-animated'),
+        require('@tailwindcss/line-clamp'),
     ],
 }
