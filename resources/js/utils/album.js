@@ -61,6 +61,24 @@ const Album = {
     async loadNextBatch() {
         await this.loadPhotos();
         console.log(this.cards.value);
+    },
+
+    getProportion(card) {
+        const width = card.width;
+        const height = card.height;
+        const ratio = width / height;
+
+        const ratio3x2 = 3 / 2;
+        const ratio2x3 = 2 / 3;
+
+        const diff3x2 = Math.abs(ratio - ratio3x2);
+        const diff2x3 = Math.abs(ratio - ratio2x3);
+
+        if (diff3x2 < diff2x3) {
+            return '3x2';
+        } else {
+            return '2x3';
+        }
     }
 };
 

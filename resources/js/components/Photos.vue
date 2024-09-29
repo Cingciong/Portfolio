@@ -2,46 +2,41 @@
 import { ref, onMounted, nextTick, onUnmounted } from 'vue';
 import Album from '../utils/album.js';
 import { createLayout } from '../utils/layout.js';
-import { initializeCardElements } from '../utils/cursor.js';
+import VanillaTilt from 'vanilla-tilt';
 
 const layout = createLayout();
 const cards = ref([]);
+const selectedImage = ref(null);
 
 onMounted(async () => {
     await Album.loadPhotos(); // Load the first batch of photos
     cards.value = Album.cards.value; // Assign loaded cards to the ref
     layout.gridColumns = 6;
     await nextTick();
+    layout.gap = 10;
     layout.getContainerSize();
     layout.getCards();
     layout.arrangeCards();
 
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
+
+    VanillaTilt.init(document.querySelectorAll('.tilt-card'), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.5,
+    });
+
+    // Add keydown event listener for Esc key
+    window.addEventListener('keydown', handleKeydown);
 });
 
 onUnmounted(() => {
     // Remove scroll event listener when component is unmounted
     window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('keydown', handleKeydown);
 });
-
-function getProportion(card) {
-    const width = card.width;
-    const height = card.height;
-    const ratio = width / height;
-
-    const ratio3x2 = 3 / 2;
-    const ratio2x3 = 2 / 3;
-
-    const diff3x2 = Math.abs(ratio - ratio3x2);
-    const diff2x3 = Math.abs(ratio - ratio2x3);
-
-    if (diff3x2 < diff2x3) {
-        return '3x2';
-    } else {
-        return '2x3';
-    }
-}
 
 const loadNextBatch = async () => {
     await Album.loadNextBatch();
@@ -49,11 +44,31 @@ const loadNextBatch = async () => {
     await nextTick();
     layout.getCards();
     layout.arrangeCards();
+    VanillaTilt.init(document.querySelectorAll('.tilt-card'), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.5,
+    });
 };
-
 const handleScroll = () => {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         loadNextBatch();
+    }
+};
+
+const openModal = (image) => {
+    const hdImage = image.replace('/assets/photos/', '/assets/HD_photos/');
+    selectedImage.value = hdImage;
+};
+
+const closeModal = () => {
+    selectedImage.value = null;
+};
+
+const handleKeydown = (event) => {
+    if (event.key === 'Escape') {
+        closeModal();
     }
 };
 </script>
@@ -65,10 +80,15 @@ const handleScroll = () => {
             <div id="ghostCard" class="rounded-2xl bg-accent cursor-pointer absolute duration-500 transition-all opacity-0"></div>
             <div :id="layout.getNextKey()"
                  v-for="card in cards" :key="card.id"
-                 :size="getProportion(card)"
-                 :style="{ background: 'url(' + card.url + ') no-repeat center center / cover' }"
-                 class="card flex flex-col text-secondary justify-between overflow-hidden select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 p-8 border-opacity-15 cursor-pointer absolute text-2xl text-bold bg-neutral">
+                 :size="Album.getProportion(card)"
+                 class="card animate-fade-up animate-once animate-ease-out rounded-2xl shadow-accent shadow-md cursor-pointer absolute bg-neutral">
+                <img :src="card.url" alt="Photo" class="w-full h-full rounded-2xl hover:z-auto  tilt-card" @click="openModal(card.url)">
             </div>
         </section>
+    </div>
+
+    <div v-if="selectedImage" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" @click.self="closeModal">
+        <img :src="selectedImage" alt="Full Screen Photo" class="max-w-full max-h-full">
+        <button @click="closeModal" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
     </div>
 </template>

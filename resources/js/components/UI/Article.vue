@@ -68,7 +68,7 @@ onMounted(() => {
         observer.observe(articleRef.value);
     }
 
-    let pointSize = 6;
+    let pointSize = 4;
     const color1 = [160, 160, 160]; // First color (black)
     const color2 = [255, 255, 255]; // Second color (white)
     setNoiseBackground(props.canvasId, 800, 600, pointSize, color1, color2);
