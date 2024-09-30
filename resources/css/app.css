@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.typing, .typing-caret {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 1s steps(40, end) forwards; /* Typing animation */
+    animation-delay: 0.5s; /* Adjust the delay as needed */
+    color: inherit; /* Inherit text color from parent */
+    display: inline-block; /* Ensure the element is inline-block for width animation */
+    width: auto; /* Set width to auto */
+    max-width: fit-content; /* Ensure the width fits the content */
+    padding-right: 0.5em; /* Add space between text and caret */
+    position: relative; /* Position relative for pseudo-element */
+}
+
+.typing-caret::after {
+    content: ''; /* Empty content for the caret */
+    border-right: .06em solid currentColor; /* Use current text color for the caret */
+    animation: blink 1.2s step-end infinite;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    visibility: visible; /* Show the caret */
+}
+
+.typing::after {
+    content: ''; /* Empty content for the caret */
+    border-right: .06em solid currentColor; /* Use current text color for the caret */
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    animation: caret-visibility 0.8s steps(40, end) forwards; /* Control caret visibility */
+}
+
+@keyframes caret-visibility {
+    from { visibility: visible; } /* Show the caret during typing */
+    to { visibility: hidden; } /* Hide the caret after typing */
+}
+
+@keyframes typing {
+    from { width: 0; visibility: visible; } /* Make text visible when animation starts */
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}

@@ -1,105 +1,68 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { createLayout } from '../utils/layout.js';
-import { initializeCardElements } from '../utils/cursor.js';
 
-const layout = createLayout();
-const cards = ref([]);
 
-onMounted(async () => {
-    layout.getContainerSize();
-    layout.getCards();
-    layout.arrangeCards();
-    initializeCardElements(cards, layout);
-});
 
-const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/assets/CV/Igor_Maciejak_CV.pdf';
-    link.download = 'Igor_Maciejak_CV.pdf';
-    link.click();
-};
 
-const viewCV = () => {
-    window.open('/assets/CV/Igor_Maciejak_CV.pdf', '_blank');
-};
 
 </script>
 
 <template>
 
+<section class="px-64">
 
+        <h1 class="text-5xl text-center mb-28 ">My expireance</h1>
+    <article class="grid grid-cols-2 justify-center items-center mb-20">
+        <a href="https://pesi.pl/" target="_blank">
+            <img class="rounded-3xl h-auto w-11/12 cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
+        </a>
+        <div class="flex flex-col gap-10 justify-center ml-10">
+            <h2 class="text-4xl typing" style="animation-delay: 0s; color: #D8A25E;">Pesi</h2>
+            <p class="text-xl leading-10 w-fit">
+                Since the age of 17, I worked at PESI, focusing on front-end and back-end development with Laravel. After contributing to multiple projects, I completed my role there in 2024, gaining valuable experience in web development and IT solutions. Below are some examples of projects I worked on during my time there.
+            </p>
+            <a href="https://pesi.pl/" class="bg-base text-secondary hover:bg-opacity-30 hover:text-text duration-300 px-4 py-2 rounded w-fit font-semibold" target="_blank">
+                Visit Website
+            </a>
+        </div>
+    </article>
+    <article class="grid grid-cols-2 justify-center items-center mb-10">
+        <div class="flex flex-col gap-10 justify-center">
+            <h2 class="text-4xl font-semibold text-balance typing-caret" style="animation-delay: 0s;">Energoobsługa</h2>
+            <ul class="text-xl leading-10 w-fit list-disc pl-5">
+                <li>This was my first major project, which I primarily completed on my own.</li>
+                <li>I gained significant back-end development experience.</li>
+                <li>Learned how to build a fully responsive website with tailwindcss</li>
+            </ul>
+        </div>
+        <img class="rounded-3xl h-[400px] w-[300px] ml-10" src="https://picsum.photos/300/400" alt="Energoobsługa Project Preview">
+    </article>
+    <article class="grid grid-cols-2 justify-center items-center mb-20">
+        <div class="flex flex-col gap-10 justify-center">
+            <h2 class="text-4xl font-semibold text-balance typing-caret" style="animation-delay: 0s;">Wczesnoszkolni</h2>
+            <ul class="text-xl leading-10 w-fit list-disc pl-5">
+                <li>I gained significant back-end development experience.</li>
+                <li>Learned how to implement PDF export functionality.</li>
+            </ul>
+        </div>
+        <img class="rounded-3xl h-[400px] w-[300px] ml-10" src="https://picsum.photos/id/1/300/400" alt="Wczesnoszkolni Project Preview">
+    </article>
+    <hr class="text-text shadow-text shadow-2xl">
+    <article class="grid grid-cols-2 justify-center items-center mb-10">
+        <a href="#" target="_blank">
+            <img class="rounded-3xl h-auto w-5/6 cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/wedding_photography.png" alt="Wedding Photography">
+        </a>
 
-
-    <div class="bg-secondary p-5 w-[1250px] bg-opacity-50 mx-auto rounded-3xl mt-20 mb-20 shadow-accent shadow-2xl">
-        <section class="container mx-auto w-[1200px] min-h-screen relative l">
-            <div id="ghostCard" class="rounded-2xl bg-accent cursor-pointer absolute duration-500 transition-all opacity-0"></div>
-            <div :id="layout.getNextKey()" size="5x3" class="flex flex-col text-secondary select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 p-8  border-opacity-15 cursor-pointer absolute   text-2xl text-bold bg-base">
-                <h1 class="text-2xl font-semibold mb-5">Hi welcome to my web page</h1>
-                <p>i'm currently looking for job or any form of new expiearence on field of IT and photography</p>
-
-            </div>
-            <div :id="layout.getNextKey()" size="5x3" class="flex flex-col text-secondary justify-between select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 p-8  border-opacity-15 cursor-pointer absolute   text-2xl text-bold bg-neutral">
-                <h1 class="text-3xl mb-2">About Me</h1>
-                <p class="line-clamp-4">I'm a student at Gdańsk University of Technology, studying Automation, Cybernetics, and Robotics. I'm passionate
-                    about these fields for their blend of cutting-edge technology and real-world problem solving. I enjoy learning about
-                    3d printing, web development, arduino, and constantly seek to improve my skills and stay updated with industry advancements.</p>
-                <button class="border-2   rounded-full px-2 bg-secondary bg-opacity-15 border-secondary w-fit ml-auto">Learn more</button>
-            </div>
-            <div :id="layout.getNextKey()" size="3x3" class="flex flex-col text-secondary justify-between select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 p-4  border-opacity-15 cursor-pointer absolute   text-2xl text-bold bg-neutral">
-                <iframe class="w-full h-full rounded-3xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d176947.71646215045!2d18.469212004145366!3d54.52354239343998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fda145071ed789%3A0xdee2f99989236636!2sGdynia!5e1!3m2!1spl!2spl!4v1727367023123!5m2!1spl!2spl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div :id="layout.getNextKey()" size="3x2" class=" flrx flex-col gap-4 text-secondary text-2xl select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center    text-bold bg-neutral">
-                <i class="fa-solid fa-phone"></i>
-                <h2 class="text-3xl">+48 725 262 368</h2>
-            </div>
-            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="https://github.com/Cingciong/" target="_blank" class="fa-brands fa-github text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-
-            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="https://www.linkedin.com/in/igor-maciejak-745063253/" target="_blank" class="fa-brands fa-linkedin text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-            <div :id="layout.getNextKey()" size="6x2" class=" select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute  p-5 text-white text-2xl text-bold bg-neutral">
-                <h1 class="text-secondary  text-3xl mb-3">Expireance</h1>
-                <div class="px-3 pb-3 flex flex-row text-secondary items-center justify-between">
-                    <span class="text-3xl font-bold  ">FullStack Web dev</span>
-                    <div class="flex flex-col text-2xl font-semibold ">
-                        <a href="https://pesi.pl/" target="_blank">Pesi</a>
-                    </div>
-                </div>
-                <div class="px-3 pb-3 flex flex-row text-secondary items-center justify-between">
-                    <span class="text-3xl font-bold  ">Photographer</span>
-                    <div class="flex flex-col text-2xl font-semibold ">
-                        <a>On 2 weddings</a>
-                    </div>
-                </div>
-
-
-
-
-            </div>
-            <div :id="layout.getNextKey()" size="4x1" class=" text-secondary flex flex-row justify-between select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute p-8 items-center  text-white text-2xl text-bold bg-neutral">
-                <div class="flex flex-col text-secondary ">
-                    <h3 class="text-xl">2024 CV</h3>
-                    <h1 class="uppercase text-3xl font-semibold">RESUME</h1>
-                </div>
-                <div class="flex flex-row gap-5 text-secondary text-[32px]">
-                    <button @click="downloadCV()" class="fa-solid fa-download hover:text-text duration-300"></button>
-                    <button @click=" viewCV ()" class="fa-solid fa-eye hover:text-text duration-300"></button>
-                </div>
-            </div>
-
-            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="https://www.instagram.com/ratadorer.photography/" target="_blank" class="fa-brands fa-instagram text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-
-            <div :id="layout.getNextKey()" size="4x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="mailto:igor.w.maciejak@gmail.com" target="_blank" class="fa-solid fa-envelope text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-
-        </section>
-    </div>
+        <div class="flex flex-col gap-10 justify-center">
+            <h2 class="text-4xl text-balance typing mt-20" style="animation-delay: 0s; color: #D8A25E;">Wedding Photography</h2>
+            <p class="text-xl leading-10 w-fit">
+                I had the amazing opportunity to shoot photos at two weddings as a freelance photographer. These experiences allowed me to capture special moments and hone my skills in event photography.
+            </p>
+            <a href="#" class="bg-base text-secondary hover:bg-opacity-30 hover:text-text duration-300 px-4 py-2 rounded w-fit font-semibold" target="_blank">
+                See My Work
+            </a>
+        </div>
+    </article>
+</section>
 
 </template>
 

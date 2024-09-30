@@ -74,21 +74,21 @@ const handleKeydown = (event) => {
 </script>
 
 <template>
-    <h1 class="text-center text-3xl">My photo portfolio</h1>
+    <h1 class="text-center text-3xl ">My photo portfolio</h1>
     <div class="bg-secondary pt-6 p-5 w-[1250px] bg-opacity-50 mx-auto rounded-3xl mt-7 mb-24">
         <section class="container mx-auto w-[1200px] min-h-screen relative">
             <div id="ghostCard" class="rounded-2xl bg-accent cursor-pointer absolute duration-500 transition-all opacity-0"></div>
             <div :id="layout.getNextKey()"
                  v-for="card in cards" :key="card.id"
                  :size="Album.getProportion(card)"
-                 class="card animate-fade-up animate-once animate-ease-out rounded-2xl shadow-accent shadow-md cursor-pointer absolute bg-neutral">
-                <img :src="card.url" alt="Photo" class="w-full h-full rounded-2xl hover:z-auto  tilt-card" @click="openModal(card.url)">
+                 class="card animate-fade-up animate-once animate-ease-out rounded-2xl shadow-accent shadow-md hover:shadow-none duration-200 cursor-pointer absolute ">
+                <img :src="card.url" alt="Photo" class="w-full h-full rounded-2xl   tilt-card" @click="openModal(card.url)">
             </div>
         </section>
     </div>
 
     <div v-if="selectedImage" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" @click.self="closeModal">
-        <img :src="selectedImage" alt="Full Screen Photo" class="max-w-full max-h-full">
+        <img :src="selectedImage" alt="HD photo" class="max-w-full max-h-full">
         <button @click="closeModal" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
     </div>
 </template>
