@@ -10,7 +10,7 @@
 
 <section class="px-64">
 
-        <h1 class="text-5xl text-center mb-28 ">My expireance</h1>
+        <h1 class="text-5xl text-center mb-28 ">My experience</h1>
     <article class="grid grid-cols-2 justify-center items-center mb-20">
         <a href="https://pesi.pl/" target="_blank">
             <img class="rounded-3xl h-auto w-11/12 cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
@@ -28,24 +28,29 @@
     <article class="grid grid-cols-2 justify-center items-center mb-10">
         <div class="flex flex-col gap-10 justify-center">
             <h2 class="text-4xl font-semibold text-balance typing-caret" style="animation-delay: 0s;">Energoobsługa</h2>
-            <ul class="text-xl leading-10 w-fit list-disc pl-5">
+            <ul class="text-xl leading-10 w-fit list-disc ">
                 <li>This was my first major project, which I primarily completed on my own.</li>
                 <li>I gained significant back-end development experience.</li>
                 <li>Learned how to build a fully responsive website with tailwindcss</li>
             </ul>
         </div>
-        <img class="rounded-3xl h-[400px] w-[300px] ml-10" src="https://picsum.photos/300/400" alt="Energoobsługa Project Preview">
+        <a href="https://www.energoobsluga.pl/ " class="ml-10" target="_blank">
+            <img class="rounded-3xl h-auto w-7/12 cursor-pointer transform transition-transform duration-300 hover:scale-110  bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/energoobsluga.png" alt="Enrgoobsługa">
+        </a>
     </article>
     <article class="grid grid-cols-2 justify-center items-center mb-20">
         <div class="flex flex-col gap-10 justify-center">
             <h2 class="text-4xl font-semibold text-balance typing-caret" style="animation-delay: 0s;">Wczesnoszkolni</h2>
-            <ul class="text-xl leading-10 w-fit list-disc pl-5">
+            <ul class="text-xl leading-10 w-fit list-disc ">
                 <li>I gained significant back-end development experience.</li>
                 <li>Learned how to implement PDF export functionality.</li>
             </ul>
         </div>
-        <img class="rounded-3xl h-[400px] w-[300px] ml-10" src="https://picsum.photos/id/1/300/400" alt="Wczesnoszkolni Project Preview">
+        <a href="https://wczesnoszkolni.pl/ " class="ml-10" target="_blank">
+            <img class="rounded-3xl h-auto w-7/12 cursor-pointer transform transition-transform duration-300 hover:scale-110  bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/wczesnoszkolni.png" alt="Enrgoobsługa">
+        </a>
     </article>
+
     <hr class="text-text shadow-text shadow-2xl">
     <article class="grid grid-cols-2 justify-center items-center mb-10">
         <a href="#" target="_blank">

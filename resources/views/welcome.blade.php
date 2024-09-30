@@ -16,7 +16,7 @@
         <!-- Styles -->
         @vite('recourses/css/app.css')
     </head>
-    <body id="app">
+    <body id="app" class="min-h-screen w-full ">
        @vite('resources/js/app.js')
     </body>
 </html>

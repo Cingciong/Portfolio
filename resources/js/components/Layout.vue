@@ -66,7 +66,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div id="background" class="overflow-hidden relative bg-primary font-main h-fit flex flex-col gap-20 w-full text-text animate-duration-600">
+    <main id="background" class="overflow-hidden relative bg-primary font-main h-fit flex flex-col gap-20 w-full text-text animate-duration-600">
         <div id="follow-mouse" class="w-[400px] h-[400px] bg-gradient-to-r from-teal-400/60 to-yellow-200/60 rounded-full pointer-events-none blur-3xl fixed z-10 translate-y-1/2 translate-x-1/2"></div>
         <div class="absolute inset-0 bg-primary opacity-50 z-0"></div>
         <div class="moving-element h-full w-32 bg-gradient-to-r from-sky-500/30 to-lime-500/30 top-0 absolute blur-3xl"></div>
@@ -77,7 +77,15 @@ onMounted(() => {
             <Navbar/>
             <router-view/>
         </div>
-    </div>
+        <footer class="relative z-20">
+            <div class="text-center text-text py-5 leading-9">
+                <p>&copy; 2024 <strong class="text-accent font-bold">Igor Maciejak</strong>. All rights reserved.
+                    <br>
+                    Page made by  <strong class="text-accent font-bold">Igor Maciejak</strong>.</p>
+            </div>
+        </footer>
+    </main>
+
 </template>
 
 <style scoped>

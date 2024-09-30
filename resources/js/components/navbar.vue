@@ -26,7 +26,7 @@ watch(route, updateBallClass, { immediate: true });
 </script>
 
 <template>
-    <div class="justify-between flex pt-10 animate-fade animate-once animate-ease-in animate-duration-400">
+    <nav class="justify-between flex pt-10 animate-fade animate-once animate-ease-in animate-duration-400">
         <h1>Igor M.</h1>
         <nav class="flex flex-row gap-2 relative">
             <router-link to="/">Home</router-link>
@@ -35,7 +35,7 @@ watch(route, updateBallClass, { immediate: true });
             <router-link to="/photos">Photos</router-link>
             <div :class="['bg-accent', 'rounded-full', 'w-2', 'h-2', 'absolute', '-bottom-4', 'transition-all', 'duration-300', 'shadow-2xl', ballClasses[ballClassIndex]]"></div>
         </nav>
-    </div>
+    </nav>
 </template>
 
 <style scoped>
