@@ -61,7 +61,7 @@ onMounted(() => {
     const color2 = [255, 255, 255]; // Second color (white)
     setNoiseBackground('background', 800, 600, pointSize, color1, color2);
     followMouse('follow-mouse', 0.1);
-    animateElements(0.5, 0.5, 20); // Adjust these values to control move, rotate speeds, and max rotation
+    animateElements(0.5, 1, 20); // Adjust these values to control move, rotate speeds, and max rotation
 });
 </script>
 
@@ -71,8 +71,8 @@ onMounted(() => {
         <div class="absolute inset-0 bg-primary opacity-50 z-0"></div>
         <div class="moving-element h-full w-32 bg-gradient-to-r from-sky-500/30 to-lime-500/30 top-0 absolute blur-3xl"></div>
         <div class="moving-element h-full w-48 bg-gradient-to-r from-red-600/30 to-lime-500/30 absolute top-0 blur-3xl"></div>
-        <div class="moving-element h-full w-14 bg-gradient-to-r from-lime-500/30 to-fuchsia-900/30 absolute top-1/2 blur-3xl"></div>
-        <div class="moving-element h-full w-24 bg-gradient-to-r from-amber-500/30 to-pink-500/30 absolute top-1/2 blur-3xl"></div>
+        <div class="moving-element h-full w-14 bg-gradient-to-r from-lime-500/30 to-fuchsia-900/30 absolute top-0 blur-3xl"></div>
+        <div class="moving-element h-full w-24 bg-gradient-to-r from-amber-500/30 to-pink-500/30 absolute top-0 blur-3xl"></div>
         <div class="h-fit flex flex-col gap-20 w-[1500px] mx-auto relative z-20">
             <Navbar/>
             <router-view/>
