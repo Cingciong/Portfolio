@@ -4,8 +4,8 @@ const Album = {
     cards: ref([]),
     numberOfPhotos: ref(0),
     currentBatch: ref(0),
-    batchSize: 5,
-    photoCounter: ref(1),
+    batchSize: 6, // Default batch size
+    photoCounter: ref(1), // Initialize a global counter for unique IDs
 
     async getImageDimensions(url) {
         return new Promise((resolve, reject) => {
@@ -34,17 +34,17 @@ const Album = {
         }
     },
 
-    async loadPhotos(folder = 'photo', batchSize = this.batchSize) {
+    async loadPhotos(batchSize = this.batchSize) {
         const promises = [];
         let index = this.currentBatch.value * batchSize + 1;
         const end = index + batchSize;
 
         while (index < end) {
-            const url = `/assets/${folder}/untitled-${index}.jpg`;
+            const url = `/assets/photos/untitled-${index}.jpg`;
             const size = await this.getFileSize(url);
-            if (size === 0) break;
+            if (size === 0) break; // Exit the loop if no more photos are found
             promises.push(this.getImageDimensions(url).then(dimensions => ({
-                id: `photo_${this.photoCounter.value++}`,
+                id: `photo_${this.photoCounter.value++}`, // Ensure unique ID using global counter
                 url,
                 ...dimensions
             })));
@@ -53,12 +53,14 @@ const Album = {
 
         const newPhotos = await Promise.all(promises);
         this.cards.value = [...this.cards.value, ...newPhotos];
-        this.numberOfPhotos.value = this.cards.value.length;
-        this.currentBatch.value++;
+        this.numberOfPhotos.value = this.cards.value.length; // Update the number of photos loaded
+        this.currentBatch.value++; // Increment the batch counter
+        console.log(this.cards.value);
     },
 
     async loadNextBatch() {
         await this.loadPhotos();
+        console.log(this.cards.value);
     },
 
     getProportion(card) {

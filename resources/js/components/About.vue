@@ -17,7 +17,7 @@
     </section>
 
     <section class="mx-20 flex flex-col items-center gap-10">
-        <h1 class="text-6xl text-center mb-16">IT</h1>
+        <h1 class="text-6xl text-center mb-16">My IT Projects</h1>
         <ArticleComponent
             title="Quadrator Simulation"
             link="https://github.com/Cingciong/Projekct-IV-sem.-2"
@@ -56,7 +56,20 @@
         </ArticleComponent>
         <div class="w-full h-1 bg-text blur-sm shadow-text shadow-2xl my-10 flex justify-center"></div>
     </section>
+    <section class="mx-20 flex flex-col items-center gap-10">
+        <h1 class="text-6xl text-center mb-16">Photography</h1>
 
+        <ArticleComponent
+            title="Photography Journey"
+            link="/photos"
+        >
+            <li>I’ve always enjoyed capturing moments through photography, starting my journey with an analog Zenit camera.</li>
+            <li>Now, I regularly shoot and experiment with various styles, but my true passion lies in using vintage lenses, appreciating their unique characteristics and charm.</li>
+            <li>Photography allows me to blend creativity and technical skill, and I’m always exploring new techniques to perfect my craft.</li>
+            <li>It’s a hobby that complements my interest in visual arts and provides a way to document life’s beauty in a timeless way.</li>
+        </ArticleComponent>
+        <div class="w-full h-1 bg-text blur-sm shadow-text shadow-2xl my-10 flex justify-center"></div>
+    </section>
     <section class="mx-20 flex flex-col items-center gap-10">
         <h1 class="text-6xl text-center mb-16">3D Printing</h1>
 
@@ -69,7 +82,10 @@
             <li>I especially enjoy creating intricate contraptions, like gearboxes and other mechanical systems, pushing the boundaries of what can be done with 3D printing.</li>
             <li>This hobby has taught me a lot about CAD design, mechanics, and material science, fueling my love for innovation and hands-on creativity.</li>
         </ArticleComponent>
+
     </section>
+
+
 </template>
 
 <script setup>
