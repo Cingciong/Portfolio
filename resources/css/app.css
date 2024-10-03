@@ -36,6 +36,14 @@
     animation: caret-visibility 0.8s steps(40, end) forwards; /* Control caret visibility */
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
 @keyframes caret-visibility {
     from { visibility: visible; } /* Show the caret during typing */
     to { visibility: hidden; } /* Hide the caret after typing */
@@ -48,4 +56,26 @@
 
 @keyframes blink {
     50% { border-color: transparent; }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #343131 !important;
+}
+
+/* Handle */
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #171616 !important;
+    border-radius: 30px !important;
+    transition: background-color 300ms !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
 }

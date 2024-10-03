@@ -1,15 +1,21 @@
-// layout.js
+import {initializeCardElements} from "@/utils/cursor.js";
 
 class Layout {
     constructor() {
+        this.gridColumns = 12; // Default value
         this.keyCounter = 0;
-        this.containerSize = 0;
-        this.gap = 3.5;
-        this.gridColumns = 12;
-        this.cards = [];
         this.cardPositions = [];
         this.calculatedPositions = [];
+        this.containerSize = 0;
+        this.gap = 5; // Example gap value, adjust as needed
+        this.cards = []; // Initialize this.cards
+
+        // Define breakpoints
+
+
+
     }
+
 
     getContainerSize() {
         const container = document.querySelector('.container');
@@ -33,6 +39,8 @@ class Layout {
     }
 
     arrangeCards() {
+        if (!this.cards) return; // Ensure this.cards is defined
+
         // Initialize the grid with the correct number of columns for each row
         const grid = Array.from({ length: this.gridColumns }, () => Array(this.gridColumns).fill(false));
         let currentTop = 0;
@@ -85,7 +93,6 @@ class Layout {
     }
 
     placeCard(grid, col, row, width, height) {
-
         for (let i = 0; i < width; i++) {
             for (let j = 0; j < height; j++) {
                 grid[col + i][row + j] = true;
@@ -125,10 +132,6 @@ class Layout {
             }
         });
     }
-
-    // layout.js
-
-// layout.js
 
     snapToGrid(id, left, top) {
         const columnWidth = this.containerSize / this.gridColumns;

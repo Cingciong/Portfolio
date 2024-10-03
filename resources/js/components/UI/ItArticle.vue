@@ -7,7 +7,7 @@
             <button @click="toggleContent" :class="['text-3xl p-5 rounded-full border border-gray-500/50 bg-gray-900/20 text-text hover:opacity-50 duration-300 h-14 w-14 text-center flex justify-center items-center mx-auto', isCollapsed ? 'rotate-180' : 'rotate-0']">
                 ▼
             </button>
-            <ul :class="['text-xl leading-10 w-fit list-disc text-left transition-height duration-500', isCollapsed ? 'h-0 overflow-hidden' : 'h-auto']">
+            <ul :class="['text-xl leading-10 w-fit list-disc lg:text-left transition-height duration-500 text-center ', isCollapsed ? 'h-0 overflow-hidden' : 'h-auto']">
                 <slot></slot>
             </ul>
         </div>

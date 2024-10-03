@@ -1,11 +1,11 @@
 <template>
-    <section class="w-3/4 mx-auto flex flex-col ">
+    <section class=" mx-auto flex flex-col ">
         <h1 class="text-5xl text-center mb-28">About me</h1>
-        <article class="grid grid-cols-2 mb-28 justify-center items-center">
-            <img class="rounded-3xl h-auto w-11/12 cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
-            <div class="flex flex-col gap-10 justify-center ml-10">
-                <h2 class="text-4xl typing" style="animation-delay: 0s; color: #D8A25E;">Who I Am</h2>
-                <p class="text-xl leading-10 w-fit">
+        <article class="grid lg:grid-cols-2 gap-14 lg:mb-28 mb-20 justify-center items-center">
+            <img class="rounded-3xl h-auto  lg:w-full md:w-1/2 w-3/4 lg:mx-0 mx-auto cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
+            <div class="flex flex-col gap-10 justify-center  lg:text-left text-center">
+                <h2 class="text-4xl " style="animation-delay: 0s; color: #D8A25E;">Who I Am</h2>
+                <p class="text-xl leading-10 w-fit ">
                     I'm a {{ age }}-year-old passionate about technology and creativity. I started working in IT at 17, gaining experience in both front-end and back-end development. Beyond coding, I enjoy 3D printing, photography, and constantly exploring new ways to innovate. Currently, I’m studying at
                     <a href="https://pg.edu.pl/rekrutacja/rekrutacja-obywatele-polscy/studia-i-stopnia/wykaz-kierunkow/automatyka-cybernetyka-i-robotyka" class="text-neutral hover:underline hover:text-neutral/30 duration-300" style="text-decoration: none !important;">
                         <span>Gdańsk University of Technology, majoring in Automation, Robotics, and Cybernetics at ETI</span>
@@ -13,11 +13,11 @@
                 </p>
             </div>
         </article>
-        <div class="w-full h-1 bg-text blur-sm shadow-text shadow-2xl my-10 flex justify-center"></div>
+        <div class="w-full h-1 bg-text blur-sm shadow-text shadow-2xl  flex justify-center"></div>
     </section>
 
-    <section class="mx-20 flex flex-col items-center gap-10">
-        <h1 class="text-6xl text-center mb-16">My IT Projects</h1>
+    <section class=" flex flex-col items-center gap-10">
+        <h1 class="text-5xl text-center mb-16">My IT Projects</h1>
         <ArticleComponent
             title="Quadrator Simulation"
             link="https://github.com/Cingciong/Projekct-IV-sem.-2"
@@ -57,7 +57,7 @@
         <div class="w-full h-1 bg-text blur-sm shadow-text shadow-2xl my-10 flex justify-center"></div>
     </section>
     <section class="mx-20 flex flex-col items-center gap-10">
-        <h1 class="text-6xl text-center mb-16">Photography</h1>
+        <h1 class="lg:text-5xl text-4xl text-center mb-16">Photography</h1>
 
         <ArticleComponent
             title="Photography Journey"

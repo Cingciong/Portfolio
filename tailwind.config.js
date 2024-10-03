@@ -16,7 +16,7 @@ module.exports = {
                 secondary: '#343131', // Sunshine
                 accent: '#A04747',    // Mint
                 neutral: '#D8A25E',   // Seafoam
-                base: '#EEDF7A',      // Mist
+                based: '#EEDF7A',      // Mist
                 text: '#ECDFCC'
             },
         },
