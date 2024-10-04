@@ -83,7 +83,7 @@ const viewCV = () => {
                 <a href="https://www.linkedin.com/in/igor-maciejak-745063253/" target="_blank" class="fa-brands fa-linkedin text-[120px] text-secondary hover:text-text duration-300"></a>
             </div>
             <div :id="layout.getNextKey()" size="6x2" class=" select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute  p-5 text-white text-2xl text-bold bg-neutral">
-                <h1 class="text-secondary  text-3xl mb-3">Expireance</h1>
+                <h1 class="text-secondary  text-3xl mb-3">Experience</h1>
                 <div class="px-3 pb-3 flex flex-row text-secondary items-center justify-between">
                     <span class="text-3xl font-bold  ">FullStack Web dev</span>
                     <div class="flex flex-col text-2xl font-semibold ">

@@ -75,9 +75,9 @@ const Album = {
         const diff2x3 = Math.abs(ratio - ratio2x3);
 
         if (diff3x2 < diff2x3) {
-            return '3x2';
+            return true;
         } else {
-            return '2x3';
+            return false;
         }
     }
 };
