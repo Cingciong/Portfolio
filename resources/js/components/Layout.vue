@@ -72,9 +72,10 @@ onMounted(() => {
         <div class="moving-element h-full w-32 bg-gradient-to-r from-sky-500/30 to-lime-500/30 top-0 absolute blur-3xl"></div>
         <div class="moving-element h-full w-48 bg-gradient-to-r from-red-600/30 to-lime-500/30 absolute top-0 blur-3xl"></div>
         <div class="moving-element h-full w-14 bg-gradient-to-r from-lime-500/30 to-fuchsia-900/30 absolute top-0 blur-3xl"></div>
-        <div class="moving-element h-full w-24 bg-gradient-to-r from-amber-500/30 to-pink-500/30 absolute top-0 blur-3xl"></div>
-        <div class="h-fit flex flex-col gap-20 xl:w-10/12 w-9/12  mx-auto relative z-20 max-w-[1500px] ">
-            <Navbar/>
+        <div class="flex justify-center w-full fixed top-0 z-20 backdrop-blur-xl bg-secondary/10 shadow-2xl shadow-secondary/30 h-[74px]">
+            <Navbar />
+        </div>
+        <div class="h-fit flex flex-col gap-20 xl:w-10/12 w-9/12 mx-auto relative  max-w-[1500px] pt-24">
             <router-view />
         </div>
         <footer class="relative z-20">
