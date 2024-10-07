@@ -10,9 +10,7 @@ class Layout {
         this.gap = 5; // Example gap value, adjust as needed
         this.cards = []; // Initialize this.cards
 
-        // Define breakpoints
-
-
+        // Define breakpoint
 
     }
 

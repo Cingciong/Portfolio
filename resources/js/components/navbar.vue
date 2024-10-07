@@ -27,9 +27,9 @@ watch(route, updateBallClass, { immediate: true });
 
 <template>
 
-    <nav class="justify-between xl:w-10/12 w-9/12 flex sm:flex-row flex-col sm:mx-0 mx-auto text-center gap-3 pt-5 animate-fade animate-once animate-ease-in animate-duration-400">
-        <h1>Igor M.</h1>
-        <nav class="flex flex-row gap-2 relative h-fit">
+    <nav class="sm:justify-between xl:w-10/12 w-9/12 flex sm:flex-row flex-col sm:mx-0 mx-auto text-center gap-3 pt-5 animate-fade animate-once animate-ease-in animate-duration-400 sticky top-0">
+        <h1 class="hidden sm:block ">Igor M.</h1>
+        <nav class="flex flex-row gap-2 relative h-fit w-fit mx-auto sm:mx-0">
             <router-link to="/">Home</router-link>
             <router-link to="/work">Work</router-link>
             <router-link to="/about">About</router-link>

@@ -6,17 +6,14 @@ import { initializeCardElements } from '../utils/cursor.js';
 const layout = createLayout();
 const cards = ref([]);
 
-const updateLayout = () => {
 
-
-};
 
 onMounted(() => {
     layout.getContainerSize();
     layout.getCards();
     layout.arrangeCards();
     initializeCardElements(cards, layout);
-    window.addEventListener('resize', updateLayout);
+
 });
 
 
@@ -34,8 +31,8 @@ const viewCV = () => {
 </script>
 
 <template>
-    <section class="grid  xl:grid-cols-4 grid-cols-1 xl:gap-0 gap-10">
-        <div class="flex flex-col gap-2 mx-auto w-fit justify-center ">
+    <section class="grid  xl:grid-cols-4 grid-cols-1 xl:gap-0 gap-10   lg:min-h-[500px] ">
+        <div class="flex flex-col gap-2 mx-auto w-fit justify-center">
             <h1 class=" text-[48px] h-fit  xl:text-left text-center" style="animation-delay: 0s;">
                 Igor Maciejak
             </h1>
@@ -51,7 +48,7 @@ const viewCV = () => {
             </div>
         </div>
         <div class="xl:col-span-2  lg:col-span-1 md:p-10 p-0 xl:max-w-[650px]  lg:max-w-[600px] max-w-[550px] mx-auto">
-            <img class="h-auto w-full  rounded-full  shadow-xl shadow-accent border border-accent border-opacity-50  p-[3%] bg-secondary animate-fade animate-once animate-ease-in" src="https://picsum.photos/1000/1000">
+            <img class="h-auto w-full  rounded-full  shadow-xl shadow-accent border border-accent border-opacity-50  p-[3%] bg-secondary animate-fade animate-once animate-ease-in" src="https://picsum.photos/500/500">
         </div>
          <div class="flex flex-col gap-2 justify-center   lg:mx-0 mx-auto  w-full text-right sm:text-[52px] text-[36px]">
 
@@ -66,27 +63,15 @@ const viewCV = () => {
         </div>
     </section>
 
-    <section class="bg-secondary p-5  bg-opacity-50  mx-auto  w-full  h-fit transition-transform duration-300 rounded-3xl mt-20 mb-20 shadow-accent shadow-2xl hidden xl:block">
-        <div class="container     relative  h-full  transition-all duration-500">
+    <section class="bg-secondary p-5  bg-opacity-50  mx-auto  w-full mt-20  h-fit transition-transform duration-300 rounded-3xl  mb-20 shadow-accent shadow-2xl hidden xl:block overflow-x-scroll">
+        <div class="container     relative  h-full  transition-all duration-500 w-[1500px]">
             <div id="ghostCard" class="rounded-2xl bg-accent cursor-pointer absolute duration-500 transition-all opacity-0"></div>
              <div :id="layout.getNextKey()" size="3x3" class="flex flex-col text-secondary justify-between select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 p-4  border-opacity-15 cursor-pointer absolute   text-2xl text-bold bg-neutral">
-                <iframe class="w-full h-full rounded-2xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d176947.71646215045!2d18.469212004145366!3d54.52354239343998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fda145071ed789%3A0xdee2f99989236636!2sGdynia!5e1!3m2!1spl!2spl!4v1727367023123!5m2!1spl!2spl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="w-full h-full rounded-2xl " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d176947.71646215045!2d18.469212004145366!3d54.52354239343998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fda145071ed789%3A0xdee2f99989236636!2sGdynia!5e1!3m2!1spl!2spl!4v1727367023123!5m2!1spl!2spl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div :id="layout.getNextKey()" size="3x2" class=" flex flex-col gap-4 text-secondary text-2xl select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center    text-bold bg-neutral">
                 <i class="fa-solid fa-phone"></i>
                 <h2 class="text-3xl">+48 725 262 368</h2>
-            </div>
-            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="https://www.instagram.com/ratadorer.photography/" target="_blank" class="fa-brands fa-instagram text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-            <div :id="layout.getNextKey()" size="4x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="mailto:igor.w.maciejak@gmail.com" target="_blank" class="fa-solid fa-envelope text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="https://github.com/Cingciong/" target="_blank" class="fa-brands fa-github text-[120px] text-secondary hover:text-text duration-300"></a>
-            </div>
-            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
-                <a href="https://www.linkedin.com/in/igor-maciejak-745063253/" target="_blank" class="fa-brands fa-linkedin text-[120px] text-secondary hover:text-text duration-300"></a>
             </div>
             <div :id="layout.getNextKey()" size="6x2" class=" select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute  p-5 text-white text-2xl text-bold bg-neutral">
                 <h1 class="text-secondary  text-3xl mb-3">Experience</h1>
@@ -103,6 +88,22 @@ const viewCV = () => {
                     </div>
                 </div>
             </div>
+            <div :id="layout.getNextKey()" size="3x1" class=" flex flex-col gap-4 text-secondary text-2xl select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center    text-bold bg-neutral">
+                <h2 class="text-2xl">you can move tiles</h2>
+            </div>
+            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
+                <a href="https://www.instagram.com/ratadorer.photography/" target="_blank" class="fa-brands fa-instagram text-[120px] text-secondary hover:text-text duration-300"></a>
+            </div>
+            <div :id="layout.getNextKey()" size="4x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
+                <a href="mailto:igor.w.maciejak@gmail.com" target="_blank" class="fa-solid fa-envelope text-[120px] text-secondary hover:text-text duration-300"></a>
+            </div>
+            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
+                <a href="https://github.com/Cingciong/" target="_blank" class="fa-brands fa-github text-[120px] text-secondary hover:text-text duration-300"></a>
+            </div>
+            <div :id="layout.getNextKey()" size="2x2" class="select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute flex items-center justify-center text-white text-2xl text-bold bg-neutral">
+                <a href="https://www.linkedin.com/in/igor-maciejak-745063253/" target="_blank" class="fa-brands fa-linkedin text-[120px] text-secondary hover:text-text duration-300"></a>
+            </div>
+
             <div :id="layout.getNextKey()" size="4x1" class=" text-secondary flex flex-row justify-between select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 border-opacity-15 cursor-pointer absolute p-8 items-center  text-white text-2xl text-bold bg-neutral">
                 <div class="flex flex-col text-secondary ">
                     <h3 class="text-xl">2024 CV</h3>
@@ -116,7 +117,7 @@ const viewCV = () => {
 
         </div>
     </section>
-    <section class="  md:my-10  flex flex-wrap w-full h-full text-text gap-5 justify-center block lg:hidden">
+    <section class="  md:my-10  flex flex-wrap w-full h-full text-text gap-5 justify-center block xl:hidden">
         <div class="h-64 w-64 flex items-center justify-center border-text/10 border-2 p-10 rounded-3xl \ text-center py-auto">
             <a href="https://github.com/Cingciong/" target="_blank" class="fa-brands fa-github text-[120px] hover:text-text duration-300"></a>
         </div>

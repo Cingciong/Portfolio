@@ -10,7 +10,7 @@
 
 
 
-        <h1 class="text-4xl lg:text-5xl text-center lg:mb-28 mb-0 ">My experience</h1>
+        <h1 class="text-4xl lg:text-5xl text-center xl:mb-28 mb-0 ">My experience</h1>
     <article class="grid lg:grid-cols-2 grid-cols-1 justify-center items-center lg:mb-20 mb-10 gap-10">
         <a href="https://pesi.pl/" target="_blank">
             <img class="rounded-3xl h-auto lg:w-10/12 md:w-1/2 w-5/6 lg:mx-0 mx-auto cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
