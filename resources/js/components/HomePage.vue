@@ -63,8 +63,8 @@ const viewCV = () => {
         </div>
     </section>
 
-    <section class="bg-secondary p-5  bg-opacity-50  mx-auto  w-full mt-20  h-fit transition-transform duration-300 rounded-3xl  mb-20 shadow-accent shadow-2xl hidden xl:block overflow-x-scroll">
-        <div class="container     relative  h-full  transition-all duration-500 w-[1500px]">
+    <section class="bg-secondary  animate-fade-up animate-once animate-duration-1000 min-h-[642px] animate-ease-linear p-5  bg-opacity-50  mx-auto  w-full mt-20  h-fit transition-transform duration-300 rounded-3xl  mb-20 shadow-accent shadow-2xl hidden xl:block overflow-x-scroll">
+        <div class="container     relative  h-full  transition-all duration-500 w-[1500px] ">
             <div id="ghostCard" class="rounded-2xl bg-accent cursor-pointer absolute duration-500 transition-all opacity-0"></div>
              <div :id="layout.getNextKey()" size="3x3" class="flex flex-col text-secondary justify-between select-none animate-fade-up animate-once animate-ease-out card rounded-2xl border border-gray-300 p-4  border-opacity-15 cursor-pointer absolute   text-2xl text-bold bg-neutral">
                 <iframe class="w-full h-full rounded-2xl " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d176947.71646215045!2d18.469212004145366!3d54.52354239343998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fda145071ed789%3A0xdee2f99989236636!2sGdynia!5e1!3m2!1spl!2spl!4v1727367023123!5m2!1spl!2spl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
