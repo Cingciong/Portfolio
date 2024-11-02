@@ -25,3 +25,4 @@ yarn-error.log
 *.png
 *.avif
 *.webp
+*.tar
