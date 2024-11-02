@@ -23,3 +23,5 @@ yarn-error.log
 
 # Ignore all .png files
 *.png
+*.avif
+*.webp
