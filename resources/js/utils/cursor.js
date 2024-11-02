@@ -9,7 +9,6 @@ export const dragMove = (e, id, cards, layout) => {
     card.element.style.transitionDuration = '500ms';
     document.getElementById('ghostCard').style.opacity = '100';
     document.getElementById('ghostCard').style.transitionDuration = '0ms';
-    console.log(layout.cardPositions, layout.card);
     const cardToLog = layout.cardPositions.find(c => c.id === card.id);
     if (!cardToLog) return; // Add this check
 
@@ -27,7 +26,6 @@ export const dragMove = (e, id, cards, layout) => {
         height: cardToLog.height
     });
 
-    console.log(layout.cardPositions);
 
     layout.arrangeCards();
 

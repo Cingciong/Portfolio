@@ -10,10 +10,10 @@
 
 
 
-        <h1 class="text-4xl lg:text-5xl text-center xl:mb-28 mb-0 ">My experience</h1>
+        <h1 class="text-4xl lg:text-5xl text-center xl:mb-20  mt-16 mb-0 ">My experience</h1>
     <article class="grid lg:grid-cols-2 grid-cols-1 justify-center items-center lg:mb-20 mb-10 gap-10">
         <a href="https://pesi.pl/" target="_blank">
-            <img class="rounded-3xl h-auto lg:w-10/12 md:w-1/2 w-5/6 lg:mx-0 mx-auto cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
+            <img class="rounded-3xl h-auto lg:w-10/12 md:w-1/2 w-5/6 lg:mx-0 mx-auto cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.jpg" alt="Pesi">
         </a>
         <div class="flex flex-col gap-10 justify-center lg:ml-10 ml-0 lg:text-left text-center">
             <h2 class="text-4xl " style="animation-delay: 0s; color: #D8A25E;">Pesi</h2>
@@ -36,7 +36,7 @@
             </ul>
         </div>
         <a href="https://www.energoobsluga.pl/ " class="lg:ml-10 ml-0" target="_blank">
-            <img class="rounded-3xl h-auto lg:w-7/12 md:w-1/2 w-5/6 cursor-pointer transform transition-transform duration-300 hover:scale-110 mx-auto lg:mx-0 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/energoobsluga.png" alt="Enrgoobsługa">
+            <img class="rounded-3xl h-auto lg:w-7/12 md:w-1/2 w-5/6 cursor-pointer transform transition-transform duration-300 hover:scale-110 mx-auto lg:mx-0 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/energoobsluga.jpg" alt="Enrgoobsługa">
         </a>
     </article>
     <article class="grid  lg:grid-cols-2 grid-cols-1   justify-center items-center ">
@@ -48,7 +48,7 @@
             </ul>
         </div>
         <a href="https://wczesnoszkolni.pl/" class="lg:ml-10 ml-0" target="_blank">
-            <img class="rounded-3xl h-auto lg:w-7/12 md:w-1/2 w-5/6 cursor-pointer transform transition-transform duration-300 hover:scale-110 mx-auto lg:mx-0 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/wczesnoszkolni.png" alt="Wczesnoszkolni">
+            <img class="rounded-3xl h-auto lg:w-7/12 md:w-1/2 w-5/6 cursor-pointer transform transition-transform duration-300 hover:scale-110 mx-auto lg:mx-0 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/wczesnoszkolni.jpg" alt="Wczesnoszkolni">
         </a>
     </article>
 
@@ -61,12 +61,12 @@
             <p class="text-xl leading-10 w-fit">
                 I had the amazing opportunity to shoot photos at two weddings as a freelance photographer. These experiences allowed me to capture special moments and hone my skills in event photography.
             </p>
-            <a href="/work" class="bg-based text-secondary hover:bg-opacity-30 hover:text-text duration-300 lg:mx-0 mx-auto px-4 py-2 rounded w-fit font-semibold" target="_blank">
+            <a href="/photos" class="bg-based text-secondary hover:bg-opacity-30 hover:text-text duration-300 lg:mx-0 mx-auto px-4 py-2 rounded w-fit font-semibold" target="_blank">
                 See My Work
             </a>
         </div>
-        <a href="/work" target="_blank">
-            <img class="rounded-3xl h-auto w-5/6 cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/wedding_photography.png" alt="Wedding Photography">
+        <a href="/photos" >
+            <img class="rounded-3xl h-auto w-5/6 cursor-pointer transform transition-transform duration-300 mx-auto hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/wedding_photography.jpg" alt="Wedding Photography">
         </a>
     </article>
 

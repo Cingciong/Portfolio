@@ -44,7 +44,7 @@ function handleKeydown(event) {
 
 onMounted(async () => {
     await Album.countFilesInDirectory();
-    console.log(Album.fileCount.value);
+
     Album.currentBatch.value = 0; // Reset the current batch
     const initialPhotos = await Album.loadPhotos();
     photos.value = initialPhotos; // Overwrite the photos array
@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <h1 class="text-center text-3xl">My photo portfolio</h1>
+    <h1 class="text-center text-3xl   mt-16 ">My photo portfolio</h1>
 
     <section class="bg-secondary pt-6 p-5 w-full bg-opacity-50 mx-auto rounded-3xl mt-7 mb-24 min-h-screen max-w-[1200px] relative grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
         <v-lazy-image v-for="photo in photos" :key="photo.id"
@@ -94,9 +94,8 @@ onBeforeUnmount(() => {
         <div id="sentinel" class="h-1"></div>
     </section>
 
-    <div v-if="selectedImage" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-100" @click.self="closeModal">
-        <img :src="selectedImage" alt="HD photo" class="max-w-full max-h-full">
-        <button @click="closeModal" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+    <div v-if="selectedImage" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center " @click="closeModal">
+        <img :src="selectedImage" alt="HD photo" class="max-w-full max-h-full -z-10">
     </div>
 </template>
 

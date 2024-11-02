@@ -133,13 +133,8 @@ class Layout {
 
     snapToGrid(id, left, top) {
         const columnWidth = this.containerSize / this.gridColumns;
-        console.log('Column Width:', columnWidth);
-        console.log('Top:', top);
-
         const gridLeft = Math.max(0, Math.min(Math.round(left / columnWidth), this.gridColumns - 1));
         const gridTop = Math.round(top / columnWidth);
-        console.log('Grid Top:', gridTop);
-
         const element = document.getElementById(id);
 
         if (element) {

@@ -10,7 +10,6 @@ const Album = {
     fileCount: ref(0),
 
     countFilesInDirectory: async () => {
-        console.log('Fetching file count...');
         try {
             const response = await axios.get('/api/count-files');
             Album.fileCount.value = response.data.fileCount;
@@ -44,8 +43,6 @@ const Album = {
         Album.photos.value = [...Album.photos.value, ...newPhotos];
         Album.numberOfPhotos.value = Album.photos.value.length;
         Album.currentBatch.value++;
-        console.log(Album.photos.value);
-
         return newPhotos;
     }
 };

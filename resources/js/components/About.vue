@@ -1,8 +1,8 @@
 <template>
     <section class=" mx-auto flex flex-col ">
-        <h1 class="text-5xl text-center mb-28">About me</h1>
+        <h1 class="text-5xl text-center xl:mb-20  mt-16 mb-10">About me</h1>
         <article class="grid lg:grid-cols-2 gap-14 lg:mb-28 mb-20 justify-center items-center">
-            <img class="rounded-3xl h-auto  lg:w-full md:w-1/2 w-3/4 lg:mx-0 mx-auto cursor-pointer transform transition-transform duration-300 hover:scale-110 bg-white bg-opacity-0 hover:bg-opacity-15" src="../../../public/assets/page/pesi.png" alt="Pesi">
+            <img class="rounded-3xl h-auto  lg:w-full md:w-1/2 w-3/4 lg:mx-0 mx-auto" loading="lazy" src="../../../public/assets/page/profile/DSCF5554-4-600w.webp" alt="Pesi">
             <div class="flex flex-col gap-10 justify-center  lg:text-left text-center">
                 <h2 class="text-4xl " style="animation-delay: 0s; color: #D8A25E;">Who I Am</h2>
                 <p class="text-xl leading-10 w-fit ">
@@ -23,8 +23,8 @@
             link="https://github.com/Cingciong/Projekct-IV-sem.-2"
         >
             <li>A C++ project simulating quadrator flight dynamics.</li>
-            <li>Developed in my 4th semester, showcasing my skills in physics-based simulations.</li>
-            <li>Used object-oriented programming to create a realistic and interactive simulation environment.</li>
+            <li>Developed in my 2th semester, showcasing my skills in physics-based simulations.</li>
+            <li>Basic usage of Automatic regulators.</li>
         </ArticleComponent>
 
         <ArticleComponent
@@ -33,7 +33,7 @@
         >
             <li>A Twitter clone built using Laravel, showcasing full-stack web development skills.</li>
             <li>Implemented core functionalities like tweet posting, user authentication, and real-time feed updates.</li>
-            <li>Focused on back-end development and integrating with front-end components using JavaScript.</li>
+            <li>Focused on back-end development and integrating with front-end components using Lravel.</li>
         </ArticleComponent>
 
         <ArticleComponent
@@ -49,7 +49,7 @@
             title="Centrum Aktywności"
             link="https://github.com/Cingciong/centrumaktywnosci"
         >
-            <li>This is a replica of the real website <a href="https://centrumaktywnosci.eu" target="_blank" class="text-secondary hover:underline">Centrum Aktywności</a>, with all original functionalities cloned.</li>
+            <li>This is a replica of the real website <a style="text-decoration: none !important;" href="https://centrumaktywnosci.eu" target="_blank" class="text-neutral hover:underline hover:text-neutral/30 duration-300">Centrum Aktywności</a>, with all original functionalities cloned.</li>
             <li>The site features room booking functionality, allowing users to book spaces for various events.</li>
             <li>I recreated the entire website using Laravel, Vue.js, and TailwindCSS, enhancing my skills in front-end and back-end development.</li>
             <li>Working on this project, I gained extensive experience with Vue.js, especially in handling dynamic user interfaces and integrating it with Laravel for a seamless user experience.</li>
@@ -75,12 +75,13 @@
 
         <ArticleComponent
             title="3D Printing Journey"
-            link="#"
+            link="https://www.printables.com/@Cingciong_767828"
         >
             <li>I've been passionate about 3D printing for over 3 years, continually honing my skills in designing and creating complex objects.</li>
             <li>Currently, I print using the Bambu Lab P1P, a high-performance machine that allows for precise and detailed prints.</li>
-            <li>I especially enjoy creating intricate contraptions, like gearboxes and other mechanical systems, pushing the boundaries of what can be done with 3D printing.</li>
-            <li>This hobby has taught me a lot about CAD design, mechanics, and material science, fueling my love for innovation and hands-on creativity.</li>
+            <li>I especially enjoy creating intricate contraptions, like gearboxes and other mechanical systems, pushing the boundaries of what can be done with 3D printing,
+            I already created planetary Gearbox and model of Wankel Engine</li>
+            <li>This hobby has taught me a lot about CAD design and mechanics, fueling my love for innovation and hands-on creativity.</li>
         </ArticleComponent>
 
     </section>
