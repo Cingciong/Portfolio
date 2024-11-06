@@ -22,7 +22,11 @@ const routes = [
     },
     {
         path: "/:pathMatch(.*)*",
-        component: NotFound,
+        component: Layout,
+        children: [
+            { path: '', component: Home }
+        ]
+
     },
 ];3
 

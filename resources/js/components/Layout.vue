@@ -56,7 +56,7 @@ function followMouse(elementId, speed = 0.1) {
 }
 
 onMounted(() => {
-    const pointSize = 3; // Adjust this value to control the size of noise points
+    const pointSize = 4; // Adjust this value to control the size of noise points
     const color1 = [160, 160, 160]; // First color (black)
     const color2 = [255, 255, 255]; // Second color (white)
     setNoiseBackground('background', 800, 600, pointSize, color1, color2);
@@ -66,7 +66,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <main id="background" class="overflow-hidden relative bg-primary font-main h-fit flex flex-col gap-20 w-full text-text animate-duration-600">
+    <main id="background" class="overflow-hidden relative  font-main h-fit flex flex-col gap-20 w-full text-text animate-duration-600">
+        <div class="absolute inset-0 bg-primary bg-opacity-90"></div>
         <div id="follow-mouse" class="w-[400px] h-[400px] bg-gradient-to-r from-teal-400/60 to-yellow-200/60 rounded-full pointer-events-none blur-3xl fixed z-10  translate-y-1/2 translate-x-1/2"></div>
         <div class="absolute inset-0 bg-primary opacity-50 z-0"></div>
         <div class="moving-element h-full w-32 bg-gradient-to-r from-sky-500/30 to-lime-500/30 top-0 absolute blur-3xl"></div>
@@ -90,16 +91,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
-#background {
-    position: relative;
-    opacity: 1;
-}
-#background > .bg-primary {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.95;
-}
+
 </style>
